@@ -6,4 +6,8 @@ public class notFly extends bird{
         System.out.println("гулять");
 
     }
+    @Override
+    public String toString() {
+        return getName()+"  "+getYearsOld()+"  "+getEnvironment()+ "  "+getTypeOfMovement();
+    }
 }
