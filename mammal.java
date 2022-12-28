@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class mammal extends Animal{
     private String environment;
     private int speed;
@@ -38,5 +40,18 @@ public class mammal extends Animal{
 
     public void setSpeed(int speed) {
         this.speed = speed;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        mammal mammal = (mammal) o;
+        return speed == mammal.speed && environment.equals(mammal.environment);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(environment, speed);
     }
 }

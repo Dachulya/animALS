@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class bird extends Animal{
     private String environment;
     private String typeOfMovement;
@@ -35,6 +37,19 @@ public class bird extends Animal{
     @Override
     public  void sleep(){
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        bird bird = (bird) o;
+        return environment.equals(bird.environment) && typeOfMovement.equals(bird.typeOfMovement);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(environment, typeOfMovement);
     }
 }
 

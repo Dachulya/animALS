@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Amphibians extends Animal{
 
     private String environment;
@@ -8,7 +10,10 @@ public class Amphibians extends Animal{
         System.out.println("Охотиться");
 
     }
-
+    @Override
+    public String toString() {
+        return getName()+"  "+getYearsOld()+"  "+getEnvironment();
+    }
 
     public String getEnvironment() {
         return environment;
@@ -28,7 +33,20 @@ public class Amphibians extends Animal{
         public  void sleep(){
 
         }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Amphibians that = (Amphibians) o;
+        return environment.equals(that.environment);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(environment);
+    }
+}
 
 
 
